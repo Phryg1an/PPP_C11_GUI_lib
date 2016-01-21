@@ -1,0 +1,11 @@
+GUI Interface Library - Bjarne Stroustrup
+-----------------------------------------
+Interface library for use while working through Programming in Principles and Practice Using C++ 2nd Edition
+
+Origional files downloaded from http://www.stroustrup.com/Programming/PPP2code/
+
+Hacked by Alma
+
+Helpful hints found at https://groups.google.com/forum/#!msg/ppp-public/BtlzdWGuQpQ/KuDN4u-SPKgJ
+
+Requires fltk
