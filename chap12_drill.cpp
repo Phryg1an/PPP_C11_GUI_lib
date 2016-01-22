@@ -140,7 +140,43 @@ try
 	win.set_label("Canvas #9");
 	win.wait_for_button();
 
+	//---------------------load in an image
 
+	Image ii {Point(100,50),"sk.jpg"};
+	win.attach(ii);
+	win.set_label("Canvas #10");
+	win.wait_for_button();
+
+	//---------------------move the image
+
+	ii.move(100,200);
+	win.set_label("Canvas #11");
+	win.wait_for_button();
+
+	//---------------------additional stuff
+
+	Circle c{Point{100,200},50};
+	Ellipse e{Point{100,200},75,25};
+	e.set_color(Color::dark_red);
+	Mark m{Point{100,200},'x'};
+
+	ostringstream oss;
+	oss << "Screen size: " << x_max() << "*" << y_max()
+		<< "; Window size: " << win.x_max() << '*' << win.y_max();
+	Text sizes {Point(100,20),oss.str()};
+
+	Image cal {Point(255,255), "UHOFRONTCOVERJPG.jpg"}; //huge jpg
+	cal.set_mask(Point{40,40},200,150); //display centre part of image
+
+	win.attach(c);
+	win.attach(m);
+	win.attach(e);
+
+	win.attach(sizes);
+	win.attach(cal);
+	win.set_label("Canvas #12");
+	win.wait_for_button();
+	
 
 
 

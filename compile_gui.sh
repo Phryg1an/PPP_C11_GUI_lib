@@ -1,4 +1,16 @@
 #!/bin/bash
+#
+# Script to compile GUI code using Bjarne Stroustrup's interface library and FLTK
+#
+# Expected parameter
+# 1: Main code file (without extension)
+#
+# Output
+# 1: Compiled code as executable
 
-g++ -w -Wall -std=c++11 Graph.cpp Window.cpp GUI.cpp Simple_window.cpp try_this.cpp `fltk-config --ldflags --use-images` -o try_this 2>&1 | tee log.txt
-
+if [ $1 ]
+then
+	g++ -w -Wall -std=c++11 Graph.cpp Window.cpp GUI.cpp Simple_window.cpp $1.cpp `fltk-config --ldflags --use-images` -o $1 2>&1 | tee log.txt
+else
+	echo "ERROR: usage - ./compile_gui.sh <C++11 filename without extension>"
+fi
