@@ -1,5 +1,5 @@
 // Programming: principles and practice 2nd Ed
-// Chap 12, Excercise 1
+// Chap 12, Excercise 1 to 5
 //
 // Code includes code for exercises:
 // 1: Rectangles vs Polygons
@@ -62,6 +62,29 @@ try
 	// EXERCISE 3
 	// ----------------------------------------------------------
 
+	Text i1 (Point{100,200},"E");
+	Text i2 (Point{200,200},"A");
+	Text i3 (Point{300,200},"G");
+
+	i1.set_font_size(150);
+	i2.set_font_size(150);	
+	i3.set_font_size(150);
+
+	i1.set_color(1);
+	i2.set_color(50);
+	i3.set_color(150);
+
+	win.attach(i1);
+	win.attach(i2);
+	win.attach(i3);
+
+	win.set_label("Exercise #3");
+	win.wait_for_button();
+
+	// ----------------------------------------------------------
+	// EXERCISE 4
+	// ----------------------------------------------------------
+
 	// A working version with iterative creation of the grid.
 
 	Vector_ref<Rectangle> vr;
@@ -79,16 +102,35 @@ try
 		}
 	}
 
-	win.set_label("Exercise #3");
+	win.set_label("Exercise #4");
 	win.wait_for_button();
 
 	// ----------------------------------------------------------
-	// EXERCISE 3
+	// EXERCISE 5
 	// ----------------------------------------------------------
+	// top left corner of window
+	Point tl {100,100};
 
-	//Rectangle r12 (Point{100,100},(x_max()/3)*2,(y_max()/4)*3);
+	// window with helpful title
+	Simple_window win{tl,1000,500,"Exercise #5"};
 
+	//Get the width and height of the screen
+	int x_size = x_max();
+	int y_size = y_max();
 
+	Rectangle r (Point{150,150},(x_size/3)*2,(y_size/4)*3);
+
+	r.set_color(Color::red);
+	
+	//using magic number as don't know how to find DPI
+	//in code
+	//for reference, works on 1600*900 pixel monitor
+	//(423x238 mm) - 24 pixels makes 1/4"
+	r.set_style(Line_style(Line_style::solid,24)); 
+	win.attach(r);
+
+	// pause
+	win.wait_for_button();
 
 }
 catch(std::exception& e) {

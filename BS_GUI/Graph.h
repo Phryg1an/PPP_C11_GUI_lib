@@ -225,6 +225,9 @@ struct Function : Shape {
 	//Function(Point orig, Fct f, double r1, double r2, int count, double xscale = 1, double yscale = 1);	
 };
 
+struct Functiony : Shape {
+	Functiony(Fct f, double r1, double r2, Point orig, int count = 100, double xscale = 25, double yscale = 25);
+};
 //------------------------------------------
 
 struct Fill {
