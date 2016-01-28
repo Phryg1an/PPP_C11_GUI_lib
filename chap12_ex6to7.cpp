@@ -36,7 +36,7 @@ try
 	//to the actual screen size, but the 'Next' button gets squished!
 
 	// ----------------------------------------------------------
-	// EXERCISE 6
+	// EXERCISE 7
 	// ----------------------------------------------------------
 
 	Simple_window win2{tl,800,800,"Exercise #6"};
