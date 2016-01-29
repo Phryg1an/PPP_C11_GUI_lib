@@ -119,7 +119,7 @@ try
 	//Add some smoke to the chimney
 	//note: using a hack of the function struct to 
 	//get the sine wave going up
-	Functiony sine {sin,0,25,Point{255,150},1000,15,15};
+	Function sine {sin,0,25,Point{255,150},1000,15,15,'y'};
 	win2.attach(sine);
 
 	win2.wait_for_button();
