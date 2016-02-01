@@ -470,6 +470,21 @@ private:
 
 //------------------------------------------
 
+struct Superellipse : Shape {
+	// Using the explicit equation ->
+	// y =  +/-b * (( 1 - (x/a)^m  )^(1/n))
+
+	// Using the explicit equation ->
+	// y =  +/-b * (( 1 - (x/a)^m  )^(1/n))
+	// 
+	// We'll give it Point origin as the graph axis 0,0
+	//
+	// win_limit denotes number of pixels from origin to graph limit
+	// graph_limit denotes positive value from origin
+	// N denotes number of points to draw across entire ellipse
+	Superellipse(double a, double b, double m, double n, Point origin, int N = 200, int win_limit = 100, double graph_limit = 3);
+};
+
 }
 #endif
 

@@ -360,4 +360,49 @@ void Image::draw_lines() const
 		p->draw(point(0).x,point(0).y);
 }
 
+Superellipse::Superellipse(double a, double b, double m, double n, Point origin, int N, int win_limit, double graph_limit)
+	// Using the explicit equation ->
+	// y =  +/-b * (( 1 - (x/a)^m  )^(1/n))
+	// 
+	// We'll give it Point origin as the graph axis 0,0
+	//
+	// win_limit denotes number of pixels from origin to graph limit
+	// graph_limit denotes positive value from origin
+	// N denotes number of points to draw across entire ellipse
+{
+
+	// Basic sense checking
+	if (N<=0) error("non-positive graphing count");
+	if (a < 0.0 || b < 0.0 || m < 0.0 || n < 0.0 || win_limit < 0 || graph_limit < 0.0) error("One or more parameters are negative");
+
+	// Derive scale
+	double win_scale = win_limit / graph_limit;
+
+	// Derive count from origin to limit;
+	int count = N / 2;
+
+	// Derive number of points to plot along x scale
+	double dist = (graph_limit*2) / (count);
+
+	// declare y and derive negative x limit
+	double y;
+	double x = -(graph_limit);
+
+	//Loop forward through positive b values
+	for (int i = 0; i < count; ++i)
+	{
+		y = b * pow(1 - pow(abs(x/a),m),1.0/n);
+		add(Point(origin.x+int(x*win_scale),origin.y+int(y*win_scale)));
+		x += dist;
+	}
+
+	//Loop backwards through negative b values
+	for (int i = 0; i < count; ++i)
+	{
+		y = -b * pow(1 - pow(abs(x/a),m),1.0/n);
+		add(Point(origin.x+int(x*win_scale),origin.y+int(y*win_scale)));
+		x -= dist;
+	}
+}
+
 } // Graph

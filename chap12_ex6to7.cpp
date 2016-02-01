@@ -1,9 +1,9 @@
 // Programming: principles and practice 2nd Ed
-// Chap 12, Excercise 4
+// Chap 12, Excercises 6 to 7
 //
 // Code includes code for exercises:
-// 1: Rectangles vs Polygons
-// 2: Rectangles with text in them
+// 6: Windows bigger than the screen
+// 7: Drawing a house (oddly therapeutic)
 
 #include "BS_GUI/Simple_window.h"
 #include "BS_GUI/Graph.h"
