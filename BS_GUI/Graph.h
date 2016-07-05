@@ -394,6 +394,35 @@ private:
 
 //------------------------------------------
 
+struct Arc : Shape {
+	Arc(Point p, int ww, int hh, int ss, int ee)	// center, min and max distance from center, start and end angle
+	:w{ ww }, h{ hh }, s{ ss }, e{ ee } {
+		add(Point{ p.x - ww, p.y - hh });
+	}
+
+	void draw_lines() const;
+
+	Point center() const { return{ point(0).x + w, point(0).y + h }; }
+	Point focus1() const { return{ center().x + int(sqrt(double(w*w - h*h))), center().y }; }
+	Point focus2() const { return{ center().x - int(sqrt(double(w*w - h*h))), center().y }; }
+	
+	void set_major(int ww) { w=ww; }
+	int major() const { return w; }
+	void set_minor(int hh) { h=hh; }
+	int minor() const { return h; }
+	void set_start(int ss) { s=ss; }
+	int arc_start() const { return s; }
+	void set_end(int ee) { e=ee; }
+	int arc_end() const { return e; }
+
+private:
+	int w;
+	int h;
+	int s;
+	int e;
+};
+//------------------------------------------
+
 /*
 struct Mark : Text {
 	static const int dw = 4;

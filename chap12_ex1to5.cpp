@@ -109,7 +109,7 @@ try
 	// EXERCISE 5
 	// ----------------------------------------------------------
 	// top left corner of window
-	Point tl {100,100};
+	//Point tl {100,100};
 
 	// window with helpful title
 	Simple_window win{tl,1000,500,"Exercise #5"};

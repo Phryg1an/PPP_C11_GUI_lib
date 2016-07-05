@@ -17,7 +17,8 @@ chap12_ex6to7: $(OBJS) chap12_ex6to7.cpp
 chap12_ex8: $(OBJS) chap12_ex8.cpp
 	$(CC) $(LFLAGS) $(OBJS) chap12_ex8.cpp -o chap12_ex8 
 
-chap12_ex12: $(OBJS) chap12_ex9.cpp
+chap12_ex12: $(OBJS) chap12_ex12.cpp
 	$(CC) $(LFLAGS) $(OBJS) chap12_ex12.cpp -o chap12_ex12
 
-
+scratch: $(OBJS) scratch.cpp
+	$(CC) $(LFLAGS) $(OBJS) scratch.cpp -o scratch
