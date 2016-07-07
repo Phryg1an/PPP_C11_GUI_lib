@@ -29,13 +29,35 @@ try
 	// 		win.attach(vr[vr.size()-1]);
 	// 	}
 
+	int width;
+	int height;
+	int radius;
+	Point center {500,250};
 
-	Arc e1 {Point {400,200}, 150, 50, 0, 90};
+	width = 900;
+	height = 200;
+	radius = 30;
 
-	win.attach(e1);
+
+	// // Line l2
+	// Line l1 {Point {center.x - (width/2) + radius,center.y - (width/2)}, Point {center.x + (width/2) - radius,center.y - (width/2)}};
+	// Line l2 {Point {center.x - (width/2),center.y + (width/2) - radius}, Point {center.x - (width/2), center.y - (width/2) + radius}};
+
+	// Arc a1 {Point {center.x - (width/2) + radius,center.y - (width/2) + radius}, 30, 30, 90, 180};
+
+	// win.attach(l1);
+	// win.attach(l2);
+	// win.attach(a1);
+	// win.attach(l2);
+
+	SoftBox s1 {center, width, height, radius};
+
+	s1.set_color(Color::green);
+
+	// Arc a1 {Point {105, 105}, 5, 5, 90, 180};
+
+	win.attach(s1);
 	win.wait_for_button();
-
-
 
 }
 catch(std::exception& e) {

@@ -275,6 +275,27 @@ void Arc::draw_lines() const
 	}
 }
 
+void SoftBox::draw_lines() const
+{
+
+	if (color().visibility()){
+
+		// Draw Lines
+		fl_line(point(0).x - (w/2) + r, point(0).y - (h/2),     point(0).x + (w/2) - r, point(0).y - (h/2));
+		fl_line(point(0).x - (w/2),     point(0).y - (h/2) + r, point(0).x - (w/2),     point(0).y + (h/2) - r);
+		fl_line(point(0).x - (w/2) + r, point(0).y + (h/2),     point(0).x + (w/2) - r, point(0).y + (h/2));
+		fl_line(point(0).x + (w/2),     point(0).y - (h/2) + r, point(0).x + (w/2),     point(0).y + (h/2) - r);
+		
+		// Draw Arcs
+		fl_arc(point(0).x - (w/2),         point(0).y - (h/2),         r+r,r+r,90,180);
+		fl_arc(point(0).x + (w/2) - r - r, point(0).y - (h/2),         r+r,r+r,0,90);
+		fl_arc(point(0).x - (w/2),         point(0).y + (h/2) - r - r, r+r,r+r,180,270);
+		fl_arc(point(0).x + (w/2) - r - r, point(0).y + (h/2) - r - r, r+r,r+r,270,360);
+
+	}
+
+}
+
 void draw_mark(Point xy, char c)
 {
 	static const int dx = 4;
