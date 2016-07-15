@@ -1,5 +1,5 @@
 #include "Graph.h"
-#include<map>
+#include <map>
 
 namespace Graph_lib {
 
@@ -246,6 +246,27 @@ void Circle::draw_lines() const
 	}
 }
 
+void Smiley::draw_lines() const
+{
+
+	if (color().visibility()) {
+		fl_color(color().as_int());
+		fl_arc(point(0).x,point(0).y,r+r,r+r,0,360);
+
+		//Eyes
+		fl_arc(point(0).x + ((r/5)*3),point(0).y + (r / 2),r/5,r/5,0,360);
+		fl_arc(point(0).x + ((r/5)*6),point(0).y + (r / 2),r/5,r/5,0,360);
+
+		//Mouth
+		if (t > 0)
+			fl_arc(point(0).x + (r / 2),point(0).y + (r / 3) * 2,r,r,180,360);
+		else
+			fl_arc(point(0).x + (r / 2),point(0).y + r,r,r,0,180);
+
+
+	}
+
+}
 
 void Ellipse::draw_lines() const
 {
@@ -291,6 +312,58 @@ void SoftBox::draw_lines() const
 		fl_arc(point(0).x + (w/2) - r - r, point(0).y - (h/2),         r+r,r+r,0,90);
 		fl_arc(point(0).x - (w/2),         point(0).y + (h/2) - r - r, r+r,r+r,180,270);
 		fl_arc(point(0).x + (w/2) - r - r, point(0).y + (h/2) - r - r, r+r,r+r,270,360);
+
+	}
+
+}
+
+void Arrow::draw_lines() const
+{
+
+	static const double PI = 3.14159265359;
+	double a1;
+	double a2;
+	int p3x;
+	int p3y;
+	int p4x;
+	int p4y;
+
+	if (color().visibility()){
+
+		// Draw arrow line
+		fl_line(point(0).x, point(0).y, point(1).x, point(1).y) ;
+
+		// Get outer angles for arrowhead
+		a1 = atan((double)(point(0).y - point(1).y) / (double)(point(1).x - point(0).x)) * (180.00 / PI);
+		a2 = 90.00 - a1;
+
+		p3x = (int)((double)l * (cos((a1 - a) * (PI / 180.00))));
+		p3y = (int)((double)l * (sin((a1 - a) * (PI / 180.00))));
+
+		p4x = (int)((double)l * (sin((a2 - a) * (PI / 180.00))));
+		p4y = (int)((double)l * (cos((a2 - a) * (PI / 180.00))));
+
+		// Add arrowheads
+		if (point(0).x < point(1).x) {
+			if (point(0).y < point(1).y){
+				fl_line(point(1).x, point(1).y, point(1).x - p3x, point(1).y - p3y);
+				fl_line(point(1).x, point(1).y, point(1).x - p4x, point(1).y - p4y);
+			}
+			else {
+				fl_line(point(1).x, point(1).y, point(1).x - p3x, point(1).y + p3y);
+				fl_line(point(1).x, point(1).y, point(1).x - p4x, point(1).y + p4y);
+			}
+		}
+		else {
+			if (point(0).y < point(1).y){
+				fl_line(point(1).x, point(1).y, point(1).x + p3x, point(1).y - p3y);
+				fl_line(point(1).x, point(1).y, point(1).x + p4x, point(1).y - p4y);
+			}
+			else {
+				fl_line(point(1).x, point(1).y, point(1).x + p3x, point(1).y + p3y);
+				fl_line(point(1).x, point(1).y, point(1).x + p4x, point(1).y + p4y);
+			}			
+		}
 
 	}
 

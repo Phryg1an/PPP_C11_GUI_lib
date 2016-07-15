@@ -20,43 +20,33 @@ try
 
 	Simple_window win(tl,1000,500,"Playing about");
 
-	// Vector_ref<Rectangle>vr;
 
-	// for (int i = 0; i < 16; ++i)
-	// 	for (int j = 0; j < 16; ++j) {
-	// 		vr.push_back(new Rectangle{Point{i*20,j*20},20,20});
-	// 		vr[vr.size()-1].set_fill_color(Color{i*16+j});
-	// 		win.attach(vr[vr.size()-1]);
-	// 	}
+	Point arrow_start {130,300};
+	Point arrow_tip {250,100};
+	Arrow a1 {arrow_start, arrow_tip, 100, 30.0};
 
-	int width;
-	int height;
-	int radius;
-	Point center {500,250};
+	win.attach(a1);
 
-	width = 900;
-	height = 200;
-	radius = 30;
+	win.wait_for_button();
 
+	Smiley sm1 {{400,200},50};
+	win.attach(sm1);
 
-	// // Line l2
-	// Line l1 {Point {center.x - (width/2) + radius,center.y - (width/2)}, Point {center.x + (width/2) - radius,center.y - (width/2)}};
-	// Line l2 {Point {center.x - (width/2),center.y + (width/2) - radius}, Point {center.x - (width/2), center.y - (width/2) + radius}};
+	win.wait_for_button();
+	
+	win.detach(a1);
+	win.detach(sm1);
 
-	// Arc a1 {Point {center.x - (width/2) + radius,center.y - (width/2) + radius}, 30, 30, 90, 180};
+	arrow_start = {250,100};
+	arrow_tip = {130,300};
+	Arrow a2 {arrow_start, arrow_tip, 100, 30.0};
+	win.attach(a2);
 
-	// win.attach(l1);
-	// win.attach(l2);
-	// win.attach(a1);
-	// win.attach(l2);
+	win.wait_for_button();
 
-	SoftBox s1 {center, width, height, radius};
+	Smiley sm2 {{400,200},50,0};
+	win.attach(sm2);
 
-	s1.set_color(Color::green);
-
-	// Arc a1 {Point {105, 105}, 5, 5, 90, 180};
-
-	win.attach(s1);
 	win.wait_for_button();
 
 }

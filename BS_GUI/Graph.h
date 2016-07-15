@@ -46,7 +46,7 @@
 #include "Point.h"
 #include<vector>
 //#include<string>
-//#include<cmath>
+#include <cmath>
 #include "fltk.h"
 #include "std_lib_facilities.h"
 
@@ -54,6 +54,8 @@ namespace Graph_lib {
 // defense against ill-behaved Linux macros:
 #undef major
 #undef minor
+
+
 
 //------------------------------------------
 
@@ -438,6 +440,46 @@ private:
 	int h;
 	int r;
 	Point p;
+
+};
+//------------------------------------------
+
+struct Arrow : Shape {
+	Arrow(Point p1, Point p2, int ll, double aa)	// start of arrow, tip of arrow, arrowhead length and angle
+	:l{ ll }, a{ aa }  //initialise members
+	{
+		add(Point{ p1.x, p1.y });
+		add(Point{ p2.x, p2.y });
+	}
+
+	void draw_lines() const;
+
+
+private:
+	int l;
+	double a;
+	double a1;
+	double a2;
+	int p3x;
+	int p3y;
+	int p4x;
+	int p4y;
+
+};
+//------------------------------------------
+
+struct Smiley : Shape {
+	Smiley(Point p, int rr, int tt = 1)	// start of arrow, tip of arrow, arrowhead length and angle
+	:r{ rr }, t{ tt }  //initialise members
+	{
+		add(Point{ p.x - r, p.y - r });
+	}
+
+	void draw_lines() const;
+
+private:
+	int r;
+	int t;
 
 };
 //------------------------------------------
