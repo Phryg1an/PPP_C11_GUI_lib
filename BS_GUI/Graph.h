@@ -448,6 +448,8 @@ struct Arrow : Shape {
 	Arrow(Point p1, Point p2, int ll, double aa)	// start of arrow, tip of arrow, arrowhead length and angle
 	:l{ ll }, a{ aa }  //initialise members
 	{
+		if (p1 == p2) error("Arrow must have two distinct points.");
+
 		add(Point{ p1.x, p1.y });
 		add(Point{ p2.x, p2.y });
 	}

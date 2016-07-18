@@ -344,21 +344,26 @@ void Arrow::draw_lines() const
 		p4y = (int)((double)l * (cos((a2 - a) * (PI / 180.00))));
 
 		// Add arrowheads
+		// Extra handling to deal with arrow direction
 		if (point(0).x < point(1).x) {
+			// Arrow pointing to top right
 			if (point(0).y < point(1).y){
 				fl_line(point(1).x, point(1).y, point(1).x - p3x, point(1).y - p3y);
 				fl_line(point(1).x, point(1).y, point(1).x - p4x, point(1).y - p4y);
 			}
+			// Arrow pointing to bottom right
 			else {
 				fl_line(point(1).x, point(1).y, point(1).x - p3x, point(1).y + p3y);
 				fl_line(point(1).x, point(1).y, point(1).x - p4x, point(1).y + p4y);
 			}
 		}
 		else {
+			// Arrow pointing to top left
 			if (point(0).y < point(1).y){
 				fl_line(point(1).x, point(1).y, point(1).x + p3x, point(1).y - p3y);
 				fl_line(point(1).x, point(1).y, point(1).x + p4x, point(1).y - p4y);
 			}
+			// Arrow pointing to bottom left 
 			else {
 				fl_line(point(1).x, point(1).y, point(1).x + p3x, point(1).y + p3y);
 				fl_line(point(1).x, point(1).y, point(1).x + p4x, point(1).y + p4y);

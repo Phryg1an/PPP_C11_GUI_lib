@@ -37,8 +37,8 @@ try
 	win.detach(a1);
 	win.detach(sm1);
 
-	arrow_start = {250,100};
-	arrow_tip = {130,300};
+	arrow_start = {50,100};
+	arrow_tip = {300,91};
 	Arrow a2 {arrow_start, arrow_tip, 100, 30.0};
 	win.attach(a2);
 
