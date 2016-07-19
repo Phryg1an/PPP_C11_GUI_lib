@@ -264,6 +264,15 @@ struct Rectangle : Shape {
 	}
 	void draw_lines() const;
 
+	Point ne() const { return {point(0).x, point(0).y}; }
+	// Point nw() const { return {point(0).x, point(0).y}; }
+	// Point se() const { return {point(0).x, point(0).y}; }
+	Point sw() const { return {point(0).x + w, point(0).y + h}; }
+	// Point n() const { return {point(0).x, point(0).y}; }
+	// Point e() const { return {point(0).x, point(0).y}; }
+	// Point s() const { return {point(0).x, point(0).y}; }
+	// Point w() const { return {point(0).x, point(0).y}; }
+	// Point ne() const { return {point(0).x, point(0).y}; }
 //	void set_fill_color(Color col) { fcolor = col; }
 //	Color fill_color() { return fcolor; }
 
