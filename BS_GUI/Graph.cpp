@@ -320,7 +320,7 @@ void SoftBox::draw_lines() const
 void Arrow::draw_lines() const
 {
 
-	static const double PI = 3.14159265359;
+
 	double a1;
 	double a2;
 	int p3x;

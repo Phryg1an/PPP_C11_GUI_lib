@@ -27,50 +27,45 @@ try
 	// Crazy loop action
 	// -----------------
 
-	for (int i = 250; i < 750; i+=50)
-	{
-		ae.push_back(new Arrow(cen,{750,i},20,20));
-		win.attach(ae[ae.size()-1]);
-	}
-	for (int i = 750; i > 250; i-=50)
-	{
-		ae.push_back(new Arrow(cen,{i,750},20,20));
-		win.attach(ae[ae.size()-1]);
-	}
-	for (int i = 750; i > 250; i-=50)
-	{
-		ae.push_back(new Arrow(cen,{250,i},20,20));
-		win.attach(ae[ae.size()-1]);
-	}
-	for (int i = 250; i < 750; i+=50)
-	{
-		ae.push_back(new Arrow(cen,{i,250},20,20));
-		win.attach(ae[ae.size()-1]);
-	}
-	// Arrow a1{cen,{750,250},50,20};
-	// Arrow a2{cen,{750,300},50,20};
-	// Arrow a3{cen,{750,350},50,20};
-	// Arrow a3{cen,{750,400},50,20};
-	// Arrow a3{cen,{750,450},50,20};
-	// Arrow a3{cen,{750,500},50,20};
+	// for (int i = 250; i < 750; i+=50)
+	// {
+	// 	ae.push_back(new Arrow(cen,{750,i},20,20));
+	// 	win.attach(ae[ae.size()-1]);
+	// }
+	// for (int i = 750; i > 250; i-=50)
+	// {
+	// 	ae.push_back(new Arrow(cen,{i,750},20,20));
+	// 	win.attach(ae[ae.size()-1]);
+	// }
+	// for (int i = 750; i > 250; i-=50)
+	// {
+	// 	ae.push_back(new Arrow(cen,{250,i},20,20));
+	// 	win.attach(ae[ae.size()-1]);
+	// }
+	// for (int i = 250; i < 750; i+=50)
+	// {
+	// 	ae.push_back(new Arrow(cen,{i,250},20,20));
+	// 	win.attach(ae[ae.size()-1]);
+	// }
+	
+	Circle c1({500,500},300);
 
-	// Arrow a4{cen,{100,100},50,20};
-	// Arrow a5{{200,300},{200,100},50,20};
-	// Arrow a6{{100,300},{300,100},50,20};
+	Arrow a1(c1.nw(),c1.se(),50,20);
+	Arrow a2(c1.sw(),c1.ne(),50,20);
+	Arrow a3(c1.nn(),c1.ss(),50,20);
+	Arrow a4(c1.ee(),c1.ww(),50,20);
 
-	// Arrow a7{{100,200},{300,200},50,20};
-	// Arrow a8{{300,200},{100,200},50,20};
-
-	// win.attach(a1);	
-	// win.attach(a2);
-	// win.attach(a3);
-	// win.attach(a4);
-	// win.attach(a5);
-	// win.attach(a6);
-	// win.attach(a7);
-	// win.attach(a8);
-
+	win.attach(c1);
+	win.attach(a1);
+	win.attach(a2);
+	win.attach(a3);
+	win.attach(a4);
 	win.wait_for_button();
+
+	// Smiley s1 {cen,250};
+	// win.attach(s1);
+
+	// win.wait_for_button();
 
 
 }

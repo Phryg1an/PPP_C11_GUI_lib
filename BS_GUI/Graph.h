@@ -56,7 +56,7 @@ namespace Graph_lib {
 #undef minor
 
 
-
+static const double PI = 3.14159265359;
 //------------------------------------------
 
 struct Color {
@@ -250,6 +250,8 @@ struct Line : Shape {
 
 //------------------------------------------
 
+
+
 struct Rectangle : Shape {
 
 	Rectangle(Point xy, int ww, int hh) :w{ ww }, h{ hh }
@@ -264,15 +266,14 @@ struct Rectangle : Shape {
 	}
 	void draw_lines() const;
 
-	Point ne() const { return {point(0).x, point(0).y}; }
-	// Point nw() const { return {point(0).x, point(0).y}; }
-	// Point se() const { return {point(0).x, point(0).y}; }
-	Point sw() const { return {point(0).x + w, point(0).y + h}; }
-	// Point n() const { return {point(0).x, point(0).y}; }
-	// Point e() const { return {point(0).x, point(0).y}; }
-	// Point s() const { return {point(0).x, point(0).y}; }
-	// Point w() const { return {point(0).x, point(0).y}; }
-	// Point ne() const { return {point(0).x, point(0).y}; }
+	Point ne() const { return {point(0).x + w, point(0).y}; }
+	Point nw() const { return {point(0).x, point(0).y}; }
+	Point se() const { return {point(0).x + w, point(0).y + h}; }
+	Point sw() const { return {point(0).x, point(0).y + h}; }
+	Point nn() const { return {point(0).x + (w/2), point(0).y}; }
+	Point ee() const { return {point(0).x + w, point(0).y + (h/2)}; }
+	Point ss() const { return {point(0).x + (w/2), point(0).y + h}; }
+	Point ww() const { return {point(0).x, point(0).y + (h/2)}; }
 //	void set_fill_color(Color col) { fcolor = col; }
 //	Color fill_color() { return fcolor; }
 
@@ -373,6 +374,19 @@ struct Circle : Shape {
 	void draw_lines() const;
 
 	Point center() const { return { point(0).x + r, point(0).y + r }; }
+
+	Point ne() const { return {point(0).x + (r + (int)((double)r * (sin(45.0 * (PI / 180.00))))), point(0).y + (r - (int)((double)r * (cos(45.0 * (PI / 180.00)))))}; }
+
+	Point nw() const { return {point(0).x + (r - (int)((double)r * (sin(45.0 * (PI / 180.00))))), point(0).y + (r - (int)((double)r * (cos(45.0 * (PI / 180.00)))))}; }
+	Point se() const { return {point(0).x + r + ((int)((double)r * (sin(45.0 * (PI / 180.00))))), point(0).y + r + ((int)((double)r * (cos(45.0 * (PI / 180.00)))))}; }
+
+	Point sw() const { return {point(0).x + (r - (int)((double)r * (sin(45.0 * (PI / 180.00))))), point(0).y + (r + (int)((double)r * (cos(45.0 * (PI / 180.00)))))}; }
+
+	Point nn() const { return {point(0).x + r, point(0).y}; }
+	Point ee() const { return {point(0).x + r + r, point(0).y + r}; }
+	Point ss() const { return {point(0).x + r, point(0).y + r + r}; }
+	Point ww() const { return {point(0).x, point(0).y + r}; }
+
 
 	void set_radius(int rr) { r=rr; }
 	int radius() const { return r; }
@@ -480,7 +494,7 @@ private:
 //------------------------------------------
 
 struct Smiley : Shape {
-	Smiley(Point p, int rr, int tt = 1)	// start of arrow, tip of arrow, arrowhead length and angle
+	Smiley(Point p, int rr, int tt = 1)	// center of smiley, radius of smiley, is it smiling? 1 = yes 
 	:r{ rr }, t{ tt }  //initialise members
 	{
 		add(Point{ p.x - r, p.y - r });
