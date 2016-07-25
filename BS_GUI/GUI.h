@@ -27,6 +27,9 @@
 #include "fltk.h"
 #include "Window.h"
 #include "Graph.h"
+#include "Arrow.h"
+#include "Rectangle.h"
+#include "Ellipse.h"
 //#include<vector>
 //#include<string>
 

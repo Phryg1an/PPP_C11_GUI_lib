@@ -252,39 +252,6 @@ struct Line : Shape {
 
 
 
-struct Rectangle : Shape {
-
-	Rectangle(Point xy, int ww, int hh) :w{ ww }, h{ hh }
-	{
-		if (h<=0 || w<=0) error("Bad rectangle: non-positive side");
-		add(xy);
-	}
-	Rectangle(Point x, Point y) :w{ y.x - x.x }, h{ y.y - x.y }
-	{
-		if (h<=0 || w<=0) error("Bad rectangle: first point is not top left");
-		add(x);
-	}
-	void draw_lines() const;
-
-	Point ne() const { return {point(0).x + w, point(0).y}; }
-	Point nw() const { return {point(0).x, point(0).y}; }
-	Point se() const { return {point(0).x + w, point(0).y + h}; }
-	Point sw() const { return {point(0).x, point(0).y + h}; }
-	Point nn() const { return {point(0).x + (w/2), point(0).y}; }
-	Point ee() const { return {point(0).x + w, point(0).y + (h/2)}; }
-	Point ss() const { return {point(0).x + (w/2), point(0).y + h}; }
-	Point ww() const { return {point(0).x, point(0).y + (h/2)}; }
-//	void set_fill_color(Color col) { fcolor = col; }
-//	Color fill_color() { return fcolor; }
-
-	int height() const { return h; }
-	int width() const { return w; }
-private:
-	int h;			// height
-	int w;			// width
-//	Color fcolor;	// fill color; 0 means "no fill"
-};
-
 //------------------------------------------
 
 bool intersect(Point p1, Point p2, Point p3, Point p4);
@@ -396,26 +363,6 @@ private:
 
 //------------------------------------------
 
-struct Ellipse : Shape {
-	Ellipse(Point p, int ww, int hh)	// center, min, and max distance from center
-	:w{ ww }, h{ hh } {
-		add(Point{ p.x - ww, p.y - hh });
-	}
-
-	void draw_lines() const;
-
-	Point center() const { return{ point(0).x + w, point(0).y + h }; }
-	Point focus1() const { return{ center().x + int(sqrt(double(w*w - h*h))), center().y }; }
-	Point focus2() const { return{ center().x - int(sqrt(double(w*w - h*h))), center().y }; }
-	
-	void set_major(int ww) { w=ww; }
-	int major() const { return w; }
-	void set_minor(int hh) { h=hh; }
-	int minor() const { return h; }
-private:
-	int w;
-	int h;
-};
 
 //------------------------------------------
 
@@ -467,30 +414,6 @@ private:
 };
 //------------------------------------------
 
-struct Arrow : Shape {
-	Arrow(Point p1, Point p2, int ll, double aa)	// start of arrow, tip of arrow, arrowhead length and angle
-	:l{ ll }, a{ aa }  //initialise members
-	{
-		if (p1 == p2) error("Arrow must have two distinct points.");
-
-		add(Point{ p1.x, p1.y });
-		add(Point{ p2.x, p2.y });
-	}
-
-	void draw_lines() const;
-
-
-private:
-	int l;
-	double a;
-	double a1;
-	double a2;
-	int p3x;
-	int p3y;
-	int p4x;
-	int p4y;
-
-};
 //------------------------------------------
 
 struct Smiley : Shape {

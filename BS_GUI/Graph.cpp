@@ -155,19 +155,7 @@ Function::Function(Fct f, double r1, double r2, Point xy, int count, double xsca
 	}
 }
 
-void Rectangle::draw_lines() const
-{
-	if (fill_color().visibility()) {	// fill
-		fl_color(fill_color().as_int());
-		fl_rectf(point(0).x,point(0).y,w,h);
-		fl_color(color().as_int());	// reset color
-	}
 
-	if (color().visibility()) {	// edge on top of fill
-		fl_color(color().as_int());
-		fl_rect(point(0).x,point(0).y,w,h);
-	}
-}
 
 
 Axis::Axis(Orientation d, Point xy, int length, int n, string lab)
@@ -268,19 +256,7 @@ void Smiley::draw_lines() const
 
 }
 
-void Ellipse::draw_lines() const
-{
-	if (fill_color().visibility()) {	// fill
-		fl_color(fill_color().as_int());
-		fl_pie(point(0).x,point(0).y,w+w-1,h+h-1,0,360);
-		fl_color(color().as_int());	// reset color
-	}
 
-	if (color().visibility()) {
-		fl_color(color().as_int());
-		fl_arc(point(0).x,point(0).y,w+w,h+h,0,360);
-	}
-}
 
 void Arc::draw_lines() const
 {
@@ -317,46 +293,6 @@ void SoftBox::draw_lines() const
 
 }
 
-void Arrow::draw_lines() const
-{
-
-
-	double a1;
-	double a2;
-	int p3x;
-	int p3y;
-	int p4x;
-	int p4y;
-
-	if (color().visibility()){
-
-		// Draw arrow line
-		fl_line(point(0).x, point(0).y, point(1).x, point(1).y) ;
-
-		// Get outer angles for arrowhead
-		a1 = atan((double)(point(0).y - point(1).y) / (double)(point(1).x - point(0).x)) * (180.00 / PI);
-		a2 = 90.00 - a1;
-
-		p3x = (int)((double)l * (cos((a1 - a) * (PI / 180.00))));
-		p3y = (int)((double)l * (sin((a1 - a) * (PI / 180.00))));
-
-		p4x = (int)((double)l * (sin((a2 - a) * (PI / 180.00))));
-		p4y = (int)((double)l * (cos((a2 - a) * (PI / 180.00))));
-
-		// Add arrowheads
-		// Extra handling to deal with arrow direction
-		if (point(0).x <= point(1).x) {
-			fl_line(point(1).x, point(1).y, point(1).x - p3x, point(1).y + p3y);
-			fl_line(point(1).x, point(1).y, point(1).x - p4x, point(1).y + p4y);
-		}
-		else {
-			fl_line(point(1).x, point(1).y, point(1).x + p3x, point(1).y - p3y);
-			fl_line(point(1).x, point(1).y, point(1).x + p4x, point(1).y - p4y);			
-		}
-
-	}
-
-}
 
 void draw_mark(Point xy, char c)
 {
@@ -501,5 +437,10 @@ Superellipse::Superellipse(double a, double b, double m, double n, Point origin,
 		x -= dist;
 	}
 }
+
+
+
+
+
 
 } // Graph
