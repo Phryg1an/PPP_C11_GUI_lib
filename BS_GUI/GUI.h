@@ -30,6 +30,7 @@
 #include "Arrow.h"
 #include "Rectangle.h"
 #include "Ellipse.h"
+#include "Circle.h"
 //#include<vector>
 //#include<string>
 

@@ -122,7 +122,7 @@ try
 
 	// win.wait_for_button();
 
-	Rectangle r1 (cen,400,200);
+	Circle r1 (cen,300);
 	Arrow a1(r1.center(), ne(r1),20,20);
 	Arrow a2(r1.center(), nw(r1),20,20);
 	Arrow a3(r1.center(), se(r1),20,20);

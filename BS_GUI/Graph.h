@@ -248,11 +248,6 @@ struct Line : Shape {
 	Line(Point p1, Point p2) { add(p1); add(p2); }
 };
 
-//------------------------------------------
-
-
-
-//------------------------------------------
 
 bool intersect(Point p1, Point p2, Point p3, Point p4);
 
@@ -329,40 +324,6 @@ struct Axis : Shape {
 //	Orientation orin;
 //	int notches;
 };
-
-//------------------------------------------
-
-struct Circle : Shape {
-	Circle(Point p, int rr)	// center and radius
-	:r{ rr } {
-		add(Point{ p.x - r, p.y - r });
-	}
-
-	void draw_lines() const;
-
-	Point center() const { return { point(0).x + r, point(0).y + r }; }
-
-	Point ne() const { return {point(0).x + (r + (int)((double)r * (sin(45.0 * (PI / 180.00))))), point(0).y + (r - (int)((double)r * (cos(45.0 * (PI / 180.00)))))}; }
-
-	Point nw() const { return {point(0).x + (r - (int)((double)r * (sin(45.0 * (PI / 180.00))))), point(0).y + (r - (int)((double)r * (cos(45.0 * (PI / 180.00)))))}; }
-	Point se() const { return {point(0).x + r + ((int)((double)r * (sin(45.0 * (PI / 180.00))))), point(0).y + r + ((int)((double)r * (cos(45.0 * (PI / 180.00)))))}; }
-
-	Point sw() const { return {point(0).x + (r - (int)((double)r * (sin(45.0 * (PI / 180.00))))), point(0).y + (r + (int)((double)r * (cos(45.0 * (PI / 180.00)))))}; }
-
-	Point nn() const { return {point(0).x + r, point(0).y}; }
-	Point ee() const { return {point(0).x + r + r, point(0).y + r}; }
-	Point ss() const { return {point(0).x + r, point(0).y + r + r}; }
-	Point ww() const { return {point(0).x, point(0).y + r}; }
-
-
-	void set_radius(int rr) { r=rr; }
-	int radius() const { return r; }
-private:
-	int r;
-};
-
-//------------------------------------------
-
 
 //------------------------------------------
 
