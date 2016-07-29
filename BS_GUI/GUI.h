@@ -28,6 +28,7 @@
 #include "Window.h"
 #include "Graph.h"
 #include "Arrow.h"
+#include "SoftBox.h"
 #include "Rectangle.h"
 #include "Ellipse.h"
 #include "Circle.h"
