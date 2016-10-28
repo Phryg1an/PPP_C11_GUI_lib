@@ -6,6 +6,8 @@
 
 #include "BS_GUI/Simple_window.h"
 #include "BS_GUI/Graph.h"
+#include "BS_GUI/Regular_hexagon.h"
+#include "BS_GUI/Arrow.h"
 #include <stdexcept>
 #include <cmath>;
 //#include "std_lib_facilities.h"
@@ -22,42 +24,26 @@ try
 
 	Point cen{500,500};
 
-	SoftBox sb1(cen,300,200,20);
-	Rectangle r1(cen,400,300);
+	Regular_hexagon h1(cen,200);
 
-	Arrow a1(r1.center(), ne(r1),20,20);
-	Arrow a2(r1.center(), nw(r1),20,20);
-	Arrow a3(r1.center(), se(r1),20,20);
-	Arrow a4(r1.center(), sw(r1),20,20);
-	Arrow a5(r1.center(), nn(r1),20,20);
-	Arrow a6(r1.center(), ss(r1),20,20);
-	Arrow a7(r1.center(), ww(r1),20,20);
-	Arrow a8(r1.center(), ee(r1),20,20);
+	h1.set_fill_color(Color::green);
 
-	win.attach(a1);
-	win.attach(a2);
-	win.attach(a3);
-	win.attach(a4);
-	win.attach(a5);
-	win.attach(a6);
-	win.attach(a7);
-	win.attach(a8);
+	win.attach(h1);
 
 
-	win.attach(r1);
-	win.attach(sb1);
+	SoftBox s1(cen,200,100,20);
+
+	s1.set_fill_color(Color::blue);
+
+	win.attach(s1);
 
 	win.wait_for_button();
 
+	h1.set_fill_color(Color::blue);
+	s1.set_fill_color(Color::green);
 
-	//r1.set_fill_color(Color::blue);
-	sb1.set_fill_color(Color::blue);
+	win.wait_for_button();	
 
-	win.wait_for_button();
-
-	sb1.set_color(Color::green);
-
-	win.wait_for_button();
 }
 catch(std::exception& e) {
 	std::cout << e.what() << std::endl;
