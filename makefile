@@ -22,3 +22,6 @@ chap12_ex12: $(OBJS) chap12_ex12.cpp
 
 scratch: $(OBJS) scratch.cpp
 	$(CC) $(LFLAGS) $(OBJS) scratch.cpp -o scratch
+
+hexagons: $(OBJS) hexagons.cpp
+	$(CC) $(LFLAGS) $(OBJS) hexagons.cpp -o hexagons
