@@ -1,6 +1,6 @@
 
 
-OBJS = BS_GUI/Graph.cpp BS_GUI/Arrow.cpp BS_GUI/Regular_hexagon.cpp BS_GUI/SoftBox.cpp BS_GUI/Circle.cpp BS_GUI/Rectangle.cpp BS_GUI/Ellipse.cpp BS_GUI/Window.cpp BS_GUI/GUI.cpp BS_GUI/Simple_window.cpp
+OBJS = BS_GUI/Graph.cpp BS_GUI/Arrow.cpp BS_GUI/Regular_polygon.cpp BS_GUI/Regular_hexagon.cpp BS_GUI/SoftBox.cpp BS_GUI/Circle.cpp BS_GUI/Rectangle.cpp BS_GUI/Ellipse.cpp BS_GUI/Window.cpp BS_GUI/GUI.cpp BS_GUI/Simple_window.cpp
 CC = g++
 DEBUG = -g
 LFLAGS = -w -Wall -std=c++11 `fltk-config --ldflags --use-images` $(DEBUG)
