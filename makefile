@@ -20,6 +20,12 @@ chap12_ex8: $(OBJS) chap12_ex8.cpp
 chap12_ex12: $(OBJS) chap12_ex12.cpp
 	$(CC) $(LFLAGS) $(OBJS) chap12_ex12.cpp -o chap12_ex12
 
+chap13_ex11: $(OBJS) chap13_ex11.cpp
+	$(CC) $(LFLAGS) $(OBJS) chap13_ex11.cpp -o chap13_ex11
+
+13_12_moving_mark: $(OBJS) 13_12_moving_mark.cpp
+	$(CC) $(LFLAGS) $(OBJS) 13_12_moving_mark.cpp -o 13_12_moving_mark
+
 scratch: $(OBJS) scratch.cpp
 	$(CC) $(LFLAGS) $(OBJS) scratch.cpp -o scratch
 

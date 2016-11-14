@@ -398,12 +398,15 @@ private:
 struct Marks : Marked_polyline {
 	Marks(const string& m) :Marked_polyline(m)
 	{ set_color(Color(Color::invisible)); }
+
 };
 
 //------------------------------------------
 
 struct Mark : Marks {
 	Mark(Point xy, char c) : Marks(string(1,c)) {add(xy); }
+
+	void set_point(Point p) { Shape::set_point(0, p); }
 };
 
 //------------------------------------------

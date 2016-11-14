@@ -22,18 +22,25 @@ struct Circle : Shape {
 	void set_radius(int rr) { r=rr; }
 	int radius() const { return r; }
 	int diameter() const { return r+r; }
+
+	Bool is_inside(Point &ii) const;
+	Bool is_inside(int &x, int &y) const;
+
+	Point ne() const;
+	Point nw() const;
+	Point se() const;
+	Point sw() const;
+	Point nn() const;
+	Point ee() const;
+	Point ww() const;
+	Point ss() const;
+
 private:
 	int r;
+	Point p;
 };
 
-Point ne(Circle &c);
-Point nw(Circle &c);
-Point se(Circle &c);
-Point sw(Circle &c);
-Point nn(Circle &c);
-Point ee(Circle &c);
-Point ww(Circle &c);
-Point ss(Circle &c);
+
 
 }
 #endif

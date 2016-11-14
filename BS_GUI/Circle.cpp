@@ -16,40 +16,60 @@ void Circle::draw_lines() const
 	}
 }
 
-Point ne(Circle &c) { 
-	return {c.center().x + (int)((double)c.radius() * (sin(45.0 * (PI / 180.00)))), 
-			c.center().y - (int)((double)c.radius() * (cos(45.0 * (PI / 180.00))))}; 
+Point Circle::ne() const
+{ 
+	return {center().x + (int)((double)r * (sin(45.0 * (PI / 180.00)))), 
+			center().y - (int)((double)r * (cos(45.0 * (PI / 180.00))))}; 
 }
 
-Point nw(Circle &c) {
-	return {c.center().x - (int)((double)c.radius() * (sin(45.0 * (PI / 180.00)))),
-			c.center().y - (int)((double)c.radius() * (cos(45.0 * (PI / 180.00))))};
+Point Circle::nw() const
+{
+	return {center().x - (int)((double)r * (sin(45.0 * (PI / 180.00)))),
+			center().y - (int)((double)r * (cos(45.0 * (PI / 180.00))))};
 }
 
-Point se(Circle &c) {
-	return {c.center().x + (int)((double)c.radius() * (sin(45.0 * (PI / 180.00)))),
-			c.center().y + (int)((double)c.radius() * (cos(45.0 * (PI / 180.00))))};
+Point Circle::se() const
+{
+	return {center().x + (int)((double)r * (sin(45.0 * (PI / 180.00)))),
+			center().y + (int)((double)r * (cos(45.0 * (PI / 180.00))))};
 }
 
-Point sw(Circle &c) { 
-	return {c.center().x - (int)((double)c.radius() * (sin(45.0 * (PI / 180.00)))),
-			c.center().y + (int)((double)c.radius() * (cos(45.0 * (PI / 180.00))))};
+Point Circle::sw() const
+{ 
+	return {center().x - (int)((double)r * (sin(45.0 * (PI / 180.00)))),
+			center().y + (int)((double)r * (cos(45.0 * (PI / 180.00))))};
 }
 
-Point nn(Circle &c) { 
-	return {c.center().x, c.center().x - c.radius()}; 
+Point Circle::nn() const
+{ 
+	return {center().x, center().x - r}; 
 }
 
-Point ee(Circle &c) { 
-	return {c.center().x + c.radius(), c.center().y};
+Point Circle::ee() const
+{ 
+	return {center().x + r, center().y};
 }
 
-Point ss(Circle &c) { 
-	return {c.center().x, c.center().y + c.radius()}; 
+Point Circle::ss() const
+{ 
+	return {center().x, center().y + r}; 
 }
 
-Point ww(Circle &c) { 
-	return {c.center().x - c.radius(), c.center().y};
+Point Circle::ww() const
+{ 
+	return {center().x - r, center().y};
+}
+
+Bool Circle::is_inside(Point &ii) const {
+	if ( std::sqrt(std::pow(ii.x - center().x,2)  + std::pow(ii.y - center().y,2)) > r) return false;
+
+	return true;
+}
+
+Bool Circle::is_inside(int &x, int &y) const {
+	if ( std::sqrt(std::pow(x - center().x,2)  + std::pow(y - center().y,2)) > r) return false;
+
+	return true;
 }
 
 }

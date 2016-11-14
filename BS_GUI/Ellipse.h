@@ -16,36 +16,49 @@ struct Ellipse : Shape {
 
 	void draw_lines() const;
 
-	Point center() const { return{ point(0).x + w, point(0).y + h }; }
-	Point focus1() const { return{ center().x + int(sqrt(double(w*w - h*h))), center().y }; }
-	Point focus2() const { return{ center().x - int(sqrt(double(w*w - h*h))), center().y }; }
-
-	// Functions for returning compass points on the ellipse
-	double dminor() const { return (double)h; }
-	double dmajor() const { return (double)w; }
-	double get_corner_angle() const;
-
-	int cdiffx() const;
-	int cdiffy() const;
-
 	void set_major(int ww) { w=ww; }
 	int major() const { return w; }
+	double dmaj() const {return (double)w; }
+	
 	void set_minor(int hh) { h=hh; }
 	int minor() const { return h; }
+	double dmin() const { return (double)h; }
+
+	Point center() const { return{ point(0).x + w, point(0).y + h }; }
+	Point focus1() const { return{ center().x + int(sqrt(dmaj()*dmaj() - dmin() * dmin())), center().y }; }
+	Point focus2() const { return{ center().x - int(sqrt(dmaj()*dmaj() - dmin() * dmin())), center().y }; }
+
+	double get_corner_angle() const {
+			if (h >= w) {
+				return 45.00 * (double)(dmin()-dmaj()/(dmin()+dmaj()) * (PI / 180.0));
+			}
+		return 45.00 * (1.00 + abs((double)((dmin()-dmaj()/(dmin()+dmaj()))) * (PI / 180.0)));
+	}
+
+	int cdiffx() const {
+		return (int)((dmin()*dmaj()*sin(get_corner_angle()))/(sqrt( pow(dmaj()*cos(get_corner_angle()),2) + pow(dmin()*sin(get_corner_angle()),2))));
+	}
+	int cdiffy() const {
+		return (int)((dmin()*dmaj()*cos(get_corner_angle()))/(sqrt(pow(dmaj()*cos(get_corner_angle()),2) + pow(dmin()*sin(get_corner_angle()),2))));
+	}
+
+	Point ne() const { return{ center().x - cdiffx(), center().y + cdiffy()}; }
+	Point nw() const { return{ center().x + cdiffx(), center().y + cdiffy()}; }
+	Point se() const { return{ center().x - cdiffx(), center().y - cdiffy()}; }
+	Point sw() const { return{ center().x + cdiffx(), center().y - cdiffy()}; }
+	Point nn() const { return{ center().x, center().y - h }; }
+	Point ee() const { return{ center().x + w, center().y}; }
+	Point ss() const { return{ center().x, center().y + h}; }
+	Point ww() const { return{ center().x - w, center().y}; }
+
 
 private:
 	int w;
 	int h;
+	Point p;
+
 };
 
-Point ne(Ellipse &e);
-Point nw(Ellipse &e);
-Point se(Ellipse &e);
-Point sw(Ellipse &e);
-Point nn(Ellipse &e);
-Point ee(Ellipse &e);
-Point ww(Ellipse &e);
-Point ss(Ellipse &e);
 
 }
 #endif
