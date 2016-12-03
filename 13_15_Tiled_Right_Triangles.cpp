@@ -9,7 +9,8 @@
 #include "BS_GUI/Right_triangle.h"
 #include "BS_GUI/Arrow.h"
 #include <stdexcept>
-#include <cmath>;
+#include <cmath>
+#include <time.h>       /* time */
 #include <stdlib.h>     /* srand, rand */
 //#include "std_lib_facilities.h"
 
@@ -18,6 +19,9 @@ using namespace Graph_lib;
 int main()
 try
 {
+
+	/* initialize random seed: */
+	srand (time(NULL));
 
 	Point tl{100,100};
 
