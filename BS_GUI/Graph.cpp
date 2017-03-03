@@ -221,30 +221,6 @@ void Axis::move(int dx, int dy)
 }
 
 
-void Smiley::draw_lines() const
-{
-
-	if (color().visibility()) {
-		fl_color(color().as_int());
-		fl_arc(point(0).x,point(0).y,r+r,r+r,0,360);
-
-		//Eyes
-		fl_arc(point(0).x + ((r/5)*3),point(0).y + (r / 2),r/5,r/5,0,360);
-		fl_arc(point(0).x + ((r/5)*6),point(0).y + (r / 2),r/5,r/5,0,360);
-
-		//Mouth
-		if (t > 0)
-			fl_arc(point(0).x + (r / 2),point(0).y + (r / 3) * 2,r,r,180,360);
-		else
-			fl_arc(point(0).x + (r / 2),point(0).y + r,r,r,0,180);
-
-
-	}
-
-}
-
-
-
 void Arc::draw_lines() const
 {
 	if (fill_color().visibility()) {	// fill

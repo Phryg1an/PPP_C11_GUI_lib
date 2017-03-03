@@ -1,6 +1,6 @@
 
 
-OBJS = BS_GUI/Graph.cpp BS_GUI/Right_triangle.cpp BS_GUI/Arrow.cpp BS_GUI/Regular_polygon.cpp BS_GUI/Regular_hexagon.cpp BS_GUI/SoftBox.cpp BS_GUI/Circle.cpp BS_GUI/Rectangle.cpp BS_GUI/Ellipse.cpp BS_GUI/Window.cpp BS_GUI/GUI.cpp BS_GUI/Simple_window.cpp
+OBJS = BS_GUI/Frowny.cpp BS_GUI/Smiley.cpp BS_GUI/Star.cpp BS_GUI/Graph.cpp BS_GUI/Right_triangle.cpp BS_GUI/Arrow.cpp BS_GUI/Regular_polygon.cpp BS_GUI/Regular_hexagon.cpp BS_GUI/SoftBox.cpp BS_GUI/Circle.cpp BS_GUI/Rectangle.cpp BS_GUI/Ellipse.cpp BS_GUI/Window.cpp BS_GUI/GUI.cpp BS_GUI/Simple_window.cpp
 CC = g++
 DEBUG = -g
 LFLAGS = -w -Wall -std=c++11 `fltk-config --ldflags --use-images` $(DEBUG)
@@ -35,6 +35,8 @@ chap13_ex11: $(OBJS) chap13_ex11.cpp
 13_15_Tiled_Right_Triangles: $(OBJS) 13_15_Tiled_Right_Triangles.cpp
 	$(CC) $(LFLAGS) $(OBJS) 13_15_Tiled_Right_Triangles.cpp -o 13_15_Tiled_Right_Triangles
 
+Star_test: $(OBJS) Star_test.cpp
+	$(CC) $(LFLAGS) $(OBJS) Star_test.cpp -o Star_test
 
 scratch: $(OBJS) scratch.cpp
 	$(CC) $(LFLAGS) $(OBJS) scratch.cpp -o scratch

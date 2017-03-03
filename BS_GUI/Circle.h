@@ -9,7 +9,8 @@ namespace Graph_lib {
 #undef minor
 
 
-struct Circle : Shape {
+class Circle : public Shape {
+public:
 	Circle(Point p, int rr)	// center and radius
 	:r{ rr } {
 		add(Point{ p.x - r, p.y - r });
@@ -35,7 +36,7 @@ struct Circle : Shape {
 	Point ww() const;
 	Point ss() const;
 
-private:
+protected:
 	int r;
 	Point p;
 };

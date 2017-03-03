@@ -360,31 +360,6 @@ private:
 
 //------------------------------------------
 
-struct Smiley : Shape {
-	Smiley(Point p, int rr, int tt = 1)	// center of smiley, radius of smiley, is it smiling? 1 = yes 
-	:r{ rr }, t{ tt }  //initialise members
-	{
-		add(Point{ p.x - r, p.y - r });
-	}
-
-	void draw_lines() const;
-
-private:
-	int r;
-	int t;
-
-};
-//------------------------------------------
-
-/*
-struct Mark : Text {
-	static const int dw = 4;
-	static const int dh = 4;
-	Mark(Point xy, char c) : Text(Point(xy.x-dw, xy.y+dh),string(1,c)) {}
-};
-*/
-
-//------------------------------------------
 
 struct Marked_polyline : Open_polyline {
 	Marked_polyline(const string& m) :mark(m) { }

@@ -9,6 +9,8 @@
 #include "BS_GUI/Regular_hexagon.h"
 #include "BS_GUI/Regular_polygon.h"
 #include "BS_GUI/Arrow.h"
+#include "BS_GUI/Circle.h"
+#include "BS_GUI/Frowny.h"
 #include <stdexcept>
 #include <cmath>;
 //#include "std_lib_facilities.h"
@@ -23,12 +25,15 @@ try
 
 	Simple_window win(tl,1000,1000,"Playing about");
 
-	int s = 6;
-	int w = 250;
 	Point cen{500,500};
-	Regular_polygon rp {cen,s,w,};
-	rp.set_fill_color(Color::green);
-	rp.set_color(Color::red);
+	Frowny s(cen,200);
+
+	// int s = 6;
+	// int w = 250;
+
+	// Regular_polygon rp {cen,s,w,};
+	// rp.set_fill_color(Color::green);
+	// rp.set_color(Color::red);
 	// Point a1{891, 188};
 	// Point a2{987, 611};
 	// Point a3{717, 950};
@@ -70,8 +75,9 @@ try
 
 	// 	}
 
-
-	win.attach(rp);
+	s.set_fill_color(Color{3});
+	s.set_color(Color{4});
+	win.attach(s);
 
 	// Regular_hexagon rh {{500,500},50};
 	// win.attach(rh);
