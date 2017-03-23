@@ -4,13 +4,14 @@
 // Code includes code for exercises:
 // 9: Superellipse
 
-#include "BS_GUI/Simple_window.h"
-#include "BS_GUI/Graph.h"
-#include "BS_GUI/Regular_hexagon.h"
-#include "BS_GUI/Regular_polygon.h"
-#include "BS_GUI/Arrow.h"
-#include "BS_GUI/Circle.h"
-#include "BS_GUI/Frowny.h"
+#include "Simple_window.h"
+#include "Graph.h"
+#include "Regular_hexagon.h"
+#include "Regular_polygon.h"
+#include "Arrow.h"
+#include "Circle.h"
+#include "Frowny.h"
+#include "Smiley_hat.h"
 #include <stdexcept>
 #include <cmath>;
 //#include "std_lib_facilities.h"
@@ -26,7 +27,7 @@ try
 	Simple_window win(tl,1000,1000,"Playing about");
 
 	Point cen{500,500};
-	Frowny s(cen,200);
+	Smiley_hat s(cen,200);
 
 	// int s = 6;
 	// int w = 250;

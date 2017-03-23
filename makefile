@@ -1,45 +1,49 @@
 
 
-OBJS = BS_GUI/Frowny.cpp BS_GUI/Smiley.cpp BS_GUI/Star.cpp BS_GUI/Graph.cpp BS_GUI/Right_triangle.cpp BS_GUI/Arrow.cpp BS_GUI/Regular_polygon.cpp BS_GUI/Regular_hexagon.cpp BS_GUI/SoftBox.cpp BS_GUI/Circle.cpp BS_GUI/Rectangle.cpp BS_GUI/Ellipse.cpp BS_GUI/Window.cpp BS_GUI/GUI.cpp BS_GUI/Simple_window.cpp
+SRC := src/
+BIN := bin/
+OBJS := $(wildcard src/PPP_C11_GUI/*.cpp)
+INC := -Iinclude/PPP_C11_GUI 
 CC = g++
 DEBUG = -g
 LFLAGS = -w -Wall -std=c++11 `fltk-config --ldflags --use-images` $(DEBUG)
+ARGS := $(CC) $(LFLAGS) $(OBJS) $(INC)
 
-chap12_drill: $(OBJS) chap12_ex6to7.cpp
-	$(CC) $(LFLAGS) $(OBJS) chap12_drill.cpp -o chap12_drill 
+chap12_drill: $(OBJS) $(SRC)chap12_ex6to7.cpp
+	$(ARGS) $(SRC)chap12_drill.cpp -o $(BIN)chap12_drill 
 
-chap12_ex1to5: $(OBJS) chap12_ex6to7.cpp
-	$(CC) $(LFLAGS) $(OBJS) chap12_ex1to5.cpp -o chap12_ex1to5 
+chap12_ex1to5: $(OBJS) $(SRC)chap12_ex6to7.cpp
+	$(ARGS) $(SRC)chap12_ex1to5.cpp -o $(BIN)chap12_ex1to5 
 
-chap12_ex6to7: $(OBJS) chap12_ex6to7.cpp
-	$(CC) $(LFLAGS) $(OBJS) chap12_ex6to7.cpp -o chap12_ex6to7 
+chap12_ex6to7: $(OBJS) $(SRC)chap12_ex6to7.cpp
+	$(ARGS) $(SRC)chap12_ex6to7.cpp -o $(BIN)chap12_ex6to7 
 
-chap12_ex8: $(OBJS) chap12_ex8.cpp
-	$(CC) $(LFLAGS) $(OBJS) chap12_ex8.cpp -o chap12_ex8 
+chap12_ex8: $(OBJS)c$(SRC)chap12_ex8.cpp
+	$(ARGS) $(SRC)chap12_ex8.cpp -o $(BIN)chap12_ex8 
 
-chap12_ex12: $(OBJS) chap12_ex12.cpp
-	$(CC) $(LFLAGS) $(OBJS) chap12_ex12.cpp -o chap12_ex12
+chap12_ex12: $(OBJS) $(SRC)chap12_ex12.cpp
+	$(ARGS) $(SRC)chap12_ex12.cpp -o $(BIN)chap12_ex12
 
-chap13_ex11: $(OBJS) chap13_ex11.cpp
-	$(CC) $(LFLAGS) $(OBJS) chap13_ex11.cpp -o chap13_ex11
+chap13_ex11: $(OBJS) $(SRC)chap13_ex11.cpp
+	$(ARGS) $(SRC)chap13_ex11.cpp -o $(BIN)chap13_ex11
 
-13_12_moving_mark: $(OBJS) 13_12_moving_mark.cpp
-	$(CC) $(LFLAGS) $(OBJS) 13_12_moving_mark.cpp -o 13_12_moving_mark
+13_12_moving_mark: $(OBJS) $(SRC)13_12_moving_mark.cpp
+	$(ARGS) $(SRC)13_12_moving_mark.cpp -o $(BIN)13_12_moving_mark
 
-13_13_Col_matrix: $(OBJS) 13_13_Col_matrix.cpp
-	$(CC) $(LFLAGS) $(OBJS) 13_13_Col_matrix.cpp -o 13_13_Col_matrix
+13_13_Col_matrix: $(OBJS) $(SRC)13_13_Col_matrix.cpp
+	$(ARGS) $(SRC)13_13_Col_matrix.cpp -o $(BIN)13_13_Col_matrix
 
-13_14_Right_triangle: $(OBJS) 13_14_Right_triangle.cpp
-	$(CC) $(LFLAGS) $(OBJS) 13_14_Right_triangle.cpp -o 13_14_Right_triangle
+13_14_Right_triangle: $(OBJS) $(SRC)13_14_Right_triangle.cpp
+	$(ARGS) $(SRC)13_14_Right_triangle.cpp -o $(BIN)13_14_Right_triangle
 
-13_15_Tiled_Right_Triangles: $(OBJS) 13_15_Tiled_Right_Triangles.cpp
-	$(CC) $(LFLAGS) $(OBJS) 13_15_Tiled_Right_Triangles.cpp -o 13_15_Tiled_Right_Triangles
+13_15_Tiled_Right_Triangles: $(OBJS) $(SRC)13_15_Tiled_Right_Triangles.cpp
+	$(ARGS) $(SRC)13_15_Tiled_Right_Triangles.cpp -o $(BIN)13_15_Tiled_Right_Triangles
 
-Star_test: $(OBJS) Star_test.cpp
-	$(CC) $(LFLAGS) $(OBJS) Star_test.cpp -o Star_test
+Star_test: $(OBJS) $(SRC)Star_test.cpp
+	$(ARGS) $(SRC)Star_test.cpp -o $(BIN)Star_test
 
-scratch: $(OBJS) scratch.cpp
-	$(CC) $(LFLAGS) $(OBJS) scratch.cpp -o scratch
+scratch: $(OBJS) $(SRC)scratch.cpp
+	$(ARGS)  $(SRC)scratch.cpp -o $(BIN)scratch
 
-hexagons: $(OBJS) hexagons.cpp
-	$(CC) $(LFLAGS) $(OBJS) hexagons.cpp -o hexagons
+hexagons: $(OBJS) $(SRC)hexagons.cpp
+	$(ARGS)  $(SRC)hexagons.cpp -o $(BIN)hexagons

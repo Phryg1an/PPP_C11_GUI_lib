@@ -1,5 +1,5 @@
-#ifndef SMILEY_GUARD
-#define SMILEY_GUARD 1
+#ifndef FROWNY_GUARD
+#define FROWNY_GUARD 1
 
 #include "Graph.h"
 #include "Circle.h"
@@ -9,14 +9,11 @@ namespace Graph_lib {
 #undef major
 #undef minor
 
-class Smiley : public Circle {
+class Frowny : public Circle {
 public:
-	Smiley(Point pp, int rr)	// center of smiley, radius of smiley, is it smiling? 1 = yes 
+	Frowny(Point pp, int rr)	// center of smiley, radius of smiley, is it smiling? 1 = yes 
 	:Circle(pp, rr) {} //initialise members
-	// {
-	// 	add(Point{ pp.x - r, p.y - r });
-	// }
-
+	
 	void draw_lines() const;
 
 };

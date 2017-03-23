@@ -14,7 +14,6 @@ using namespace Graph_lib;
 
 //Helper function for generating random point
 Point rand_circ_point(int r, int c) {
-	//Point P{{rand() % (r + r) + (c-r), rand() % (r + r) + (c-r)};
 	return {rand() % (r + r) + (c-r), rand() % (r + r) + (c-r)};
 }
 
