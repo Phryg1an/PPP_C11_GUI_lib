@@ -8,7 +8,7 @@ void Smiley_hat::draw_lines() const
 		
 	if (fill_color().visibility()) {	// fill
 		fl_color(fill_color().as_int());
-		fl_rectf(point(0).x,point(0).y,r,r);
+		fl_rectf(point(0).x,point(0).y-(r/5),r*2,r);
 		fl_color(color().as_int());	// reset color
 	}
 

@@ -1,49 +1,40 @@
+TARGET = scratch
+INCDIR = include/PPP_C11_GUI
+INC := -I$(INCDIR)
+CXX = g++
+CXXFLAGS := -w -Wall -std=c++11 `fltk-config --ldflags --use-images` -g $(INC)
+LINKER := g++ -o
+LFLAGS := -w -Wall -std=c++11 `fltk-config --ldflags --use-images` -g $(INC)
+
+SRCDIR   = src/PPP_C11_GUI
+OBJDIR   = obj
+BINDIR   = bin
+
+SOURCES := $(wildcard $(SRCDIR)/*.cpp)
+OBJECTS := $(patsubst $(SRCDIR)/%.cpp, $(OBJDIR)/%.o, $(SOURCES))
 
 
-SRC := src/
-BIN := bin/
-OBJS := $(wildcard src/PPP_C11_GUI/*.cpp)
-INC := -Iinclude/PPP_C11_GUI 
-CC = g++
-DEBUG = -g
-LFLAGS = -w -Wall -std=c++11 `fltk-config --ldflags --use-images` $(DEBUG)
-ARGS := $(CC) $(LFLAGS) $(OBJS) $(INC)
+INCLUDES := $(wildcard $(INCDIR)/*.h)
+rm       = rm -f
 
-chap12_drill: $(OBJS) $(SRC)chap12_ex6to7.cpp
-	$(ARGS) $(SRC)chap12_drill.cpp -o $(BIN)chap12_drill 
+$(BINDIR)/$(TARGET): $(OBJECTS) $(OBJDIR)/$(TARGET).o
+	@$(LINKER) $@ $(LFLAGS) $(OBJECTS) $(OBJDIR)/$(TARGET).o
+	@echo "Linking complete!"
 
-chap12_ex1to5: $(OBJS) $(SRC)chap12_ex6to7.cpp
-	$(ARGS) $(SRC)chap12_ex1to5.cpp -o $(BIN)chap12_ex1to5 
+$(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.cpp
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo "Compiled "$<" successfully!"
 
-chap12_ex6to7: $(OBJS) $(SRC)chap12_ex6to7.cpp
-	$(ARGS) $(SRC)chap12_ex6to7.cpp -o $(BIN)chap12_ex6to7 
+$(OBJDIR)/$(TARGET).o: src/$(TARGET).cpp
+	@$(CXX) $(CXXFLAGS) -c src/$(TARGET).cpp -o $(OBJDIR)/$(TARGET).o
+	@echo "Compiled "$(TARGET).o" successfully!"
 
-chap12_ex8: $(OBJS)c$(SRC)chap12_ex8.cpp
-	$(ARGS) $(SRC)chap12_ex8.cpp -o $(BIN)chap12_ex8 
+.PHONY: clean
+clean:
+	@$(rm) $(OBJECTS)
+	@echo "Cleanup complete!"
 
-chap12_ex12: $(OBJS) $(SRC)chap12_ex12.cpp
-	$(ARGS) $(SRC)chap12_ex12.cpp -o $(BIN)chap12_ex12
-
-chap13_ex11: $(OBJS) $(SRC)chap13_ex11.cpp
-	$(ARGS) $(SRC)chap13_ex11.cpp -o $(BIN)chap13_ex11
-
-13_12_moving_mark: $(OBJS) $(SRC)13_12_moving_mark.cpp
-	$(ARGS) $(SRC)13_12_moving_mark.cpp -o $(BIN)13_12_moving_mark
-
-13_13_Col_matrix: $(OBJS) $(SRC)13_13_Col_matrix.cpp
-	$(ARGS) $(SRC)13_13_Col_matrix.cpp -o $(BIN)13_13_Col_matrix
-
-13_14_Right_triangle: $(OBJS) $(SRC)13_14_Right_triangle.cpp
-	$(ARGS) $(SRC)13_14_Right_triangle.cpp -o $(BIN)13_14_Right_triangle
-
-13_15_Tiled_Right_Triangles: $(OBJS) $(SRC)13_15_Tiled_Right_Triangles.cpp
-	$(ARGS) $(SRC)13_15_Tiled_Right_Triangles.cpp -o $(BIN)13_15_Tiled_Right_Triangles
-
-Star_test: $(OBJS) $(SRC)Star_test.cpp
-	$(ARGS) $(SRC)Star_test.cpp -o $(BIN)Star_test
-
-scratch: $(OBJS) $(SRC)scratch.cpp
-	$(ARGS)  $(SRC)scratch.cpp -o $(BIN)scratch
-
-hexagons: $(OBJS) $(SRC)hexagons.cpp
-	$(ARGS)  $(SRC)hexagons.cpp -o $(BIN)hexagons
+.PHONY: remove
+remove: clean
+	@$(rm) $(BINDIR)/$(TARGET)
+	@echo "Executable removed!"
