@@ -4,9 +4,9 @@
 // Code includes code for exercises:
 // 9: Superellipse
 
-#include "BS_GUI/Simple_window.h"
-#include "BS_GUI/Graph.h"
-#include "BS_GUI/Ellipse.h"
+#include "Simple_window.h"
+#include "Graph.h"
+#include "Ellipse.h"
 #include <stdexcept>
 #include <cmath>;
 //#include "std_lib_facilities.h"

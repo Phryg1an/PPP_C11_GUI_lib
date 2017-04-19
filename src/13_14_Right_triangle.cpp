@@ -1,9 +1,9 @@
 // Programming: principles and practice 2nd Ed
 // Chap 13, Excercise 14
 
-#include "BS_GUI/Simple_window.h"
-#include "BS_GUI/Graph.h"
-#include "BS_GUI/Right_triangle.h"
+#include "Simple_window.h"
+#include "Graph.h"
+#include "Right_triangle.h"
 #include <stdexcept>
 #include <stdlib.h>     /* srand, rand */
 #include <cmath>

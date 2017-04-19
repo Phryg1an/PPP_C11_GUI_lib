@@ -1,9 +1,9 @@
 // Programming: principles and practice 2nd Ed
 // Chap 13, Excercise 12
 
-#include "BS_GUI/Simple_window.h"
-#include "BS_GUI/Star.h"
-#include "BS_GUI/Ellipse.h"
+#include "Simple_window.h"
+#include "Star.h"
+#include "Ellipse.h"
 #include <stdexcept>
 #include <cmath>;
 #include <stdio.h>      /* printf, scanf, puts, NULL */

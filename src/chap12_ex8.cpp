@@ -4,8 +4,8 @@
 // Code includes code for exercises:
 // 8: Olympic Rings
 
-#include "BS_GUI/Simple_window.h"
-#include "BS_GUI/Graph.h"
+#include "Simple_window.h"
+#include "Graph.h"
 #include <stdexcept>
 //#include "std_lib_facilities.h"
 

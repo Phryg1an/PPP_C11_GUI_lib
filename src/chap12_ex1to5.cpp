@@ -5,8 +5,8 @@
 // 1: Rectangles vs Polygons
 // 2: Rectangles with text in them
 
-#include "BS_GUI/Simple_window.h"
-#include "BS_GUI/Graph.h"
+#include "Simple_window.h"
+#include "Graph.h"
 #include <stdexcept>
 //#include "std_lib_facilities.h"
 

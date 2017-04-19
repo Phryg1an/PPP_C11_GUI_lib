@@ -4,10 +4,10 @@
 // Code includes code for exercises:
 // Tile a screen with right triangles
 
-#include "BS_GUI/Simple_window.h"
-#include "BS_GUI/Graph.h"
-#include "BS_GUI/Right_triangle.h"
-#include "BS_GUI/Arrow.h"
+#include "Simple_window.h"
+#include "Graph.h"
+#include "Right_triangle.h"
+#include "Arrow.h"
 #include <stdexcept>
 #include <cmath>
 #include <time.h>       /* time */
