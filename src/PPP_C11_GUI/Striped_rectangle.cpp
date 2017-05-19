@@ -15,7 +15,7 @@ namespace Graph_lib {
 		for (int x = point(0).x + 4; x < point(0).x + width(); x+=4)
 		{
 			fl_line(x, point(0).y, x, point(0).y + height() - 1);
-			std::cout << height() + point(0).y << '\n';
+
 		}
 	}
 }
