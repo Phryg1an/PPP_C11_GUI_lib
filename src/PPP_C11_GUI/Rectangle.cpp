@@ -16,36 +16,36 @@ void Rectangle::draw_lines() const
 	}
 }
 
-Point ne(Rectangle &r) {
-	return {r.point(0).x + r.width(), r.point(0).y};
+Point Rectangle::ne() const {
+	return {point(0).x + width(), point(0).y};
 }
 
-Point nw(Rectangle &r) { 
-	return {r.point(0).x, r.point(0).y}; 
+Point Rectangle::nw() const { 
+	return {point(0).x, point(0).y}; 
 }
 
-Point se(Rectangle &r) { 
-	return {r.point(0).x + r.width(), r.point(0).y + r.height()}; 
+Point Rectangle::se() const { 
+	return {point(0).x + width(), point(0).y + height()}; 
 }
 
-Point sw(Rectangle &r) { 
-	return {r.point(0).x, r.point(0).y + r.height()}; 
+Point Rectangle::sw() const { 
+	return {point(0).x, point(0).y + height()}; 
 }
 
-Point nn(Rectangle &r) {
-	return {r.point(0).x + (r.width()/2), r.point(0).y}; 
+Point Rectangle::nn() const {
+	return {point(0).x + (width()/2), point(0).y}; 
 }
 
-Point ee(Rectangle &r) {
-	return {r.point(0).x + r.width(), r.point(0).y + (r.height()/2)}; 
+Point Rectangle::ee() const {
+	return {point(0).x + width(), point(0).y + (height()/2)}; 
 }
 
-Point ss(Rectangle &r) {
-	return {r.point(0).x + (r.width()/2), r.point(0).y + r.height()}; 
+Point Rectangle::ss() const {
+	return {point(0).x + (width()/2), point(0).y + height()}; 
 }
 
-Point ww(Rectangle &r) {
-	return {r.point(0).x, r.point(0).y + (r.height()/2)}; 
+Point Rectangle::ww() const {
+	return {point(0).x, point(0).y + (height()/2)}; 
 }
 
 

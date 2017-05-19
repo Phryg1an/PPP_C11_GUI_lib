@@ -15,40 +15,42 @@ namespace Graph_lib {
 #undef minor
 
 
-struct Rectangle : Shape {
-
-	Rectangle(Point xy, int ww, int hh) :w{ ww }, h{ hh }
+class Rectangle : public Shape {
+public:
+	Rectangle(Point p, int ww, int hh) :w{ ww }, h{ hh }
 	{
 		if (h<=0 || w<=0) error("Bad rectangle: non-positive side");
-		add(xy);
+		add(p);
 	}
-	Rectangle(Point x, Point y) :w{ y.x - x.x }, h{ y.y - x.y }
+	Rectangle(Point p, Point y) :w{ y.x - p.x }, h{ y.y - p.y }
 	{
 		if (h<=0 || w<=0) error("Bad rectangle: first point is not top left");
-		add(x);
+		add(p);
 	}
-	void draw_lines() const;
 
-//	void set_fill_color(Color col) { fcolor = col; }
-//	Color fill_color() { return fcolor; }
+	Point ne() const;
+	Point nw() const;
+	Point se() const;
+	Point sw() const;
+	Point nn() const;
+	Point ee() const;
+	Point ww() const;
+	Point ss() const;
 
 	int height() const { return h; }
 	int width() const { return w; }
 	Point center() const { return {point(0).x + (w/2), point(0).y + (h/2)}; }
-private:
+
+protected:
 	int h;			// height
 	int w;			// width
+	Point p;
+	void draw_lines() const;
+	
+private:
+
 //	Color fcolor;	// fill color; 0 means "no fill"
 };
-
-Point ne(Rectangle &r);
-Point nw(Rectangle &r);
-Point se(Rectangle &r);
-Point sw(Rectangle &r);
-Point nn(Rectangle &r);
-Point ee(Rectangle &r);
-Point ww(Rectangle &r);
-Point ss(Rectangle &r);
 
 
 }
