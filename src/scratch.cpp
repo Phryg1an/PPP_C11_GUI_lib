@@ -14,6 +14,7 @@
 #include "Smiley_hat.h"
 #include "Frowny_hat.h"
 #include "Striped_rectangle.h"
+#include "Striped_circle.h"
 #include "Immobile_Circle.h"
 #include <stdexcept>
 #include <cmath>;
@@ -29,9 +30,9 @@ try
 
 	Simple_window win(tl,1000,1000,"Playing about");
 
-	Point corner(100,100);
-	Striped_rectangle r(corner,400,200);
-	win.attach(r);
+	Point middle(500,500);
+	Striped_circle c(middle,400);
+	win.attach(c);
 	win.wait_for_button();
 }
 catch(std::exception& e) {
