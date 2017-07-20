@@ -5,17 +5,8 @@
 // 9: Superellipse
 
 #include "Simple_window.h"
-#include "Graph.h"
-#include "Regular_hexagon.h"
-#include "Regular_polygon.h"
-#include "Arrow.h"
-#include "Circle.h"
-#include "Frowny.h"
-#include "Smiley_hat.h"
-#include "Frowny_hat.h"
-#include "Striped_rectangle.h"
 #include "Striped_circle.h"
-#include "Immobile_Circle.h"
+#include "Striped_closed_polyline.h"
 #include <stdexcept>
 #include <cmath>;
 //#include "std_lib_facilities.h"
@@ -30,10 +21,22 @@ try
 
 	Simple_window win(tl,1000,1000,"Playing about");
 
-	Point middle(500,500);
-	Striped_circle c(middle,400);
-	win.attach(c);
+	Striped_closed_polyline opl1 = {{100,50},{130,70},{180,500},{270,400},{50,800}};
+	Striped_closed_polyline opl2 = {{300,50},{500,50},{300,400},{500,400}};
+
+	Striped_circle sc1 = {{400,400}, 200};
+
+	win.attach(opl1);
+	win.attach(opl2);
+	win.attach(sc1);
+	
+
 	win.wait_for_button();
+
+	sc1.set_stripes(10);
+	opl1.set_stripes(20);
+	win.wait_for_button();
+
 }
 catch(std::exception& e) {
 	std::cout << e.what() << std::endl;

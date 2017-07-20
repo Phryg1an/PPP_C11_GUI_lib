@@ -11,13 +11,15 @@ namespace Graph_lib {
 
 class Striped_circle : public Circle {
 public:
-	Striped_circle(Point p, int rr);
+	Striped_circle(Point p, int rr, int ss);
+
+	void set_stripes(int ss) { s=ss; }
 
 protected:
 	void draw_lines() const;
 
 private:
-
+	int s;
 };
 
 }

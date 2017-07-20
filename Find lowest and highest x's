@@ -1,0 +1,40 @@
+
+1: Find lowest and highest x's
+2: Find number of stripe lines we need ((highest x / lowest x) / 4)
+3: Find number of lines we have in the polyshape
+4: For each 
+
+Find lowest and highest x's
+Find highest and lowest y's
+
+Make an array of two arrays, with a number of cells equal to the number of x points needed for the stripes.
+Fill each cell with -100
+
+For each line:
+	-get the y co-ords for each x co-ord along the line
+	-place the y co-ords in the first array of the array of arrays that has a -100 in it. must check for each point*.
+	-if non of the arrays has a -100 in it at the specified point, create a new array in the array of arrays
+
+For each x co-ord:
+	get all the y points across each array
+	sort the y points
+	for n/2 times, draw the lines
+
+
+Or...........
+
+Make an array of as many arrays as we have lines (point num+1 / 2), with a number of cells equal to the number of x points needed for the stripes.
+Last line needs to be first point and last point.
+Fill each cell with -100
+
+For each line:
+	-get the y co-ords for each x co-ord along the line (trig)
+	-place the y co-ords in a single array at the position x co-ord - xmin.
+
+For each x co-ord:
+	get all the y points across each array, by iterating over the arrays and retaining only those points that are not -100
+	sort the y points
+	for n/2 times, draw the lines
+
+
+* pretty heavy....

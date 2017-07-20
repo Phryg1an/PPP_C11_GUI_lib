@@ -2,8 +2,9 @@
 
 namespace Graph_lib {
 
-	Striped_circle::Striped_circle(Point p, int rr)
-		:Circle(p, rr) {}
+	Striped_circle::Striped_circle(Point p, int rr, int ss = 4)
+		:s{ ss }, Circle(p, rr) {}
+		
 
 	void Striped_circle::draw_lines() const
 	{
@@ -11,7 +12,7 @@ namespace Graph_lib {
 
 		double diff;
 
-		for (int x = 0; x <= r; x+=4)
+		for (int x = 0; x <= r; x+=s)
 		{
 
 			//Get y differential
